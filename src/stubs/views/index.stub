@@ -1,0 +1,41 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+
+	<div class="page-header clearfix">
+	    <h1>DummyClassPlural
+	        <a class="btn btn-primary pull-right" href="{{ route('DummyViewName.create') }}">Create DummyClass</a>
+	    </h1>
+	</div>
+
+
+	<table class="table table-striped">
+	    <thead>
+	        <tr>
+	            DummyHeadFields
+	            <th></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    @foreach($DummyModelVariablePlural as $DummyModelVariable)
+	        <tr>
+	            DummyRowFields
+	            <td>
+	                <a class="btn btn-xs btn-success" href="{{ route('DummyViewName.show', $DummyModelVariable) }}">Show</a>
+	                <a class="btn btn-xs btn-info" href="{{ route('DummyViewName.edit', $DummyModelVariable) }}">Edit</a>
+	                <form action="{{ route('DummyViewName.destroy', $DummyModelVariable) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
+	                    <input type="hidden" name="_method" value="DELETE">
+	                    {{ csrf_field() }}
+	                    <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+	                </form>
+	            </td>
+	        </tr>
+	    @endforeach
+	    </tbody>
+	</table>
+
+	{{ $DummyModelVariablePlural->links() }}
+</div>
+
+@endsection

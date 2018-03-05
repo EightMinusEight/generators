@@ -1,0 +1,36 @@
+{
+    "name": "eightminuseight/generators",
+    "description": "A scaffold generator command for laravel 5.5",
+    "keywords": ["laravel", "generator", "generators", "scaffold"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher",
+            "email": "eightminuseight@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "illuminate/http": "5.5.*",
+        "illuminate/routing": "5.5.*",
+        "illuminate/filesystem": "5.5.*",
+        "illuminate/session": "5.5.*",
+        "illuminate/support": "5.5.*",
+        "illuminate/view": "5.5.*"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "EightMinusEight\\Generators\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EightMinusEight\\Generators\\GeneratorsServiceProvider"
+            ]
+        }
+    }
+}

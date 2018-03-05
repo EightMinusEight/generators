@@ -1,0 +1,119 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyFullModelClass;
+use Illuminate\Http\Request;
+use DummyRootNamespaceHttp\Controllers\Controller;
+
+class DummyClass extends Controller
+{
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $DummyModelVariablePlural = DummyModelClass::paginate(10);
+
+        return view('DummyViewName.index', [
+            'DummyModelVariablePlural' => $DummyModelVariablePlural,
+        ]);
+    }
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('DummyViewName.create');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $data = $this->validate(request(), [
+            DummyFields
+        ]);
+
+        DummyModelClass::create($data);
+
+        // Redirect to the DummyViewName page
+        return redirect()->route('DummyViewName.index');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @return \Illuminate\Http\Response
+     */
+    public function show(DummyModelClass $DummyModelVariable)
+    {
+        return view('DummyViewName.show',[
+            'DummyModelVariable' => $DummyModelVariable,
+        ]);
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(DummyModelClass $DummyModelVariable)
+    {
+        return view('DummyViewName.edit', [
+            'DummyModelVariable' => $DummyModelVariable,
+        ]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, DummyModelClass $DummyModelVariable)
+    {
+        $data = $this->validate(request(), [
+            DummyFields
+        ]);
+
+        $DummyModelVariable->update($data);
+
+        // Redirect to the DummyViewName page
+        return redirect()->route('DummyViewName.index');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function destroy(DummyModelClass $DummyModelVariable)
+    {
+        $DummyModelVariable->delete();
+
+        // Redirect to the DummyViewName page
+        return redirect()->route('DummyViewName.index');
+    }
+}

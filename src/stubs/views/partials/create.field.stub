@@ -1,0 +1,6 @@
+		<div class="form-group {{ $errors->has('DummyField') ? 'has-error' : '' }}">
+		    <label for="DummyField">DummyLabelField</label>
+		    <input type="text" class="form-control" id="DummyField" name="DummyField" value="{{ old('DummyField') }}" >
+		    {!! $errors->first('DummyField', '<p class="help-block">:message</p>') !!}
+		</div>
+

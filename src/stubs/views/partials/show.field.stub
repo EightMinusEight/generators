@@ -1,0 +1,6 @@
+
+<p><strong>DummyLabelField</strong></p>
+
+<p>{{ $DummyModelVariable->DummyField }}</p>
+
+

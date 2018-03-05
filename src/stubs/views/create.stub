@@ -1,0 +1,39 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class="container">
+
+    <div class="page-header clearfix">
+        <h1>Create DummyClass</h1>
+    </div>
+
+
+    @if (count($errors))
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
+
+    <form method="post" action="{{ route('DummyViewName.store') }}">
+        {{ csrf_field() }}
+
+DummyFormFields
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+
+    </form>
+</div>
+
+@endsection
