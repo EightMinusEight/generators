@@ -4,4 +4,7 @@ This package includes a scaffold generator command.
 
 The followind command will be added to artisan:
 
-make:scaffold
+`make:scaffold`
+
+
+v0.0.2
